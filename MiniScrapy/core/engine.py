@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from MiniScrapy.core.spider import Spider
 from MiniScrapy.core.scheduler import Scheduler
 from MiniScrapy.core.pipeline import Pipeline
@@ -5,6 +7,7 @@ from MiniScrapy.core.downloader import Downloader
 from https.request import Request
 from MiniScrapy.middlewares.downloader_middlewares import DownloaderMiddleware
 from MiniScrapy.middlewares.spider_middlewares import SpiderMiddleware
+from MiniScrapy.utils.log import logger
 
 
 class Engine():
@@ -19,6 +22,15 @@ class Engine():
 
     def start(self):
         self._start_engine()
+
+    def start(self):
+        start = datetime.now()
+        logger.info('开始运行时间:%s'%start)
+        self._start_engine()
+        stop = datetime.now()
+        logger.info('结束运行时间:%s' % stop)
+        logger.info('耗时:%.2f' % (stop - start).total_seconds())
+
 
     def _start_engine(self):
         start_request = self.spider.start_requests()
