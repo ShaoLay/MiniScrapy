@@ -17,12 +17,12 @@ with open(join(dirname(__file__), './VERSION.txt'), 'rb') as f:
     version = f.read().decode('ascii').strip()
 
 setup(
-    name='scrapy-plus',  # 模块名称
+    name='MiniScrapy',  # 模块名称
     version=version,
     description='A mini spider framework, like Scrapy',  # 描述
     packages=find_packages(exclude=[]),
-    author='itcast',
-    author_email='your@email.com',
+    author='Lay-Shao',
+    author_email='shaoleei@163.com',
     license='Apache License v2',
     package_data={'': ['*.*']},
     url='#',
